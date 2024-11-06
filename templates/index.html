@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝖕𝖍𝖆𝖓𝖙𝖔𝖒 --- Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Made By 𝖕𝖍𝖆𝖓𝖙𝖔𝖒</h1>
+        </header>
+        <nav class="tabs">
+            <h3 class="tablink active">▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨ Ping Stat ▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨</h3>
+        </nav>
+        <main>
+            <div id="PingStats" class="tabcontent active">
+                <canvas id="latencyChart"></canvas>
+                
+                <input class="url" type="url" id="target" placeholder="URL (ex: https://google.com)" required>
+                
+                <select id="delay">
+                    <option value="1">1 seconde</option>
+                    <option value="2">2 secondes</option>
+                    <option value="5">5 secondes</option>
+                </select>
+                
+                <button id="pingButton" class="start-button">Start</button>
+                <button id="stopButton" class="stop-button" disabled>Stop</button>
+                <button id="clearButton" class="clear-button">Clear</button>
+                
+                <div id="latencyDisplay">Latency : <span id="latencyValue">0</span> ms</div>
+            </div>
+        </main>
+        <div class="webhook-container">
+            <input class="webhook-url" type="url" id="webhookUrl" placeholder="Webhook URL" required>
+            <button id="sendWebhookButton" class="send-button">Send to Discord</button>
+        </div>    
+    </div>
+
+</body>
+</html>
